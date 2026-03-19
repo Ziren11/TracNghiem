@@ -1,6 +1,86 @@
 // ===== ĐỀ CƯƠNG BÀI 6 & 7 - LỚP 11 =====
 const exams = [
   {
+    id: "bai6_code1",
+    title: "Bài 6 – Preserving Our Heritage (Code 1)",
+    sections: [
+      {
+        id: "b6c1_task1",
+        title: "Task 1: Đọc hiểu – Cultural Heritage",
+        type: "reading",
+        passage: `Preserving cultural heritage is becoming increasingly important in the modern world. Cultural heritage includes historical buildings, traditional festivals, folk music, and local customs that have been passed down from generation to generation. These elements help define a community's identity and provide a strong sense of belonging for its people.\n\nHowever, many heritage sites are under serious threat. Rapid urbanisation, climate change, and mass tourism have caused significant damage to historical monuments and traditional lifestyles. In some places, ancient buildings have been replaced by modern structures, while traditional crafts are disappearing because young people are no longer interested in learning them.\n\nGovernments and local communities play a crucial role in heritage preservation. Laws can be introduced to protect important sites, and funds can be provided to restore damaged monuments. At the same time, local people should be encouraged to take pride in their cultural traditions and actively participate in preservation efforts. Education is also essential, as young generations need to understand the value of heritage in order to protect it.\n\nIn recent years, technology has offered new ways to preserve heritage. Digital archives, virtual museums, and online exhibitions allow people to access cultural heritage without causing physical damage. Although modern development is unavoidable, it should be carefully balanced with the responsibility to preserve heritage for future generations.`,
+        questions: [
+          { id: "b6c1t1q1", num: 1, text: "What is the main idea of the passage?", options: ["A. The impact of technology on modern life","B. The importance of protecting cultural heritage","C. The need to balance development and heritage preservation","D. The popularity of traditional festivals"], answer: "B" },
+          { id: "b6c1t1q2", num: 2, text: "According to the passage, which of the following is considered cultural heritage?", options: ["A. Modern shopping centres","B. Traditional festivals","C. High-rise buildings","D. Online entertainment"], answer: "B" },
+          { id: "b6c1t1q3", num: 3, text: "The word \"threat\" in paragraph 2 is closest in meaning to:", options: ["A. advantage","B. danger","C. solution","D. development"], answer: "B" },
+          { id: "b6c1t1q4", num: 4, text: "Which factor is NOT mentioned as a cause of heritage loss?", options: ["A. Urbanisation","B. Climate change","C. Education systems","D. Mass tourism"], answer: "C" },
+          { id: "b6c1t1q5", num: 5, text: "The word \"them\" in paragraph 2 refers to:", options: ["A. governments","B. local people","C. young generations","D. traditions"], answer: "D" },
+          { id: "b6c1t1q6", num: 6, text: "Which sentence best paraphrases the idea of paragraph 3?", options: ["A. Only governments are responsible for heritage protection.","B. Both authorities and communities should work together to preserve heritage.","C. Heritage protection is too expensive to carry out.","D. Young people are not interested in cultural heritage."], answer: "B" },
+          { id: "b6c1t1q7", num: 7, text: "Where in the passage does the writer mention modern technology?", options: ["A. Paragraph 1","B. Paragraph 2","C. Paragraph 4","D. Paragraph 3"], answer: "C" },
+          { id: "b6c1t1q8", num: 8, text: "Which of the following statements is TRUE according to the passage?", options: ["A. Development should be stopped to protect heritage.","B. Technology can support heritage preservation.","C. Tourism always benefits heritage sites.","D. Cultural heritage only includes buildings."], answer: "B" }
+        ]
+      },
+      {
+        id: "b6c1_task2",
+        title: "Task 2: Điền từ – Shared Responsibility",
+        type: "cloze",
+        passage: `Preserving heritage is a shared responsibility of both governments and local communities. Cultural heritage sites (1)_____ protected because they represent the history and identity of a nation. Many young people are encouraged (2)_____ part in activities that help protect traditional customs and historical places. One effective way to do this is through education, which raises awareness of the (3)_____ value of heritage. In addition, traditional festivals often play an important role in strengthening community bonds and promoting cultural pride. Some endangered sites can also (4)_________ with the support of modern technology and international cooperation. Without proper action, many valuable traditions and historical landmarks may (5)_____ forever.`,
+        questions: [
+          { id: "b6c1t2q1", num: 1, options: ["A. must be","B. should be","C. can protect","D. will protect"], answer: "B" },
+          { id: "b6c1t2q2", num: 2, options: ["A. to take","B. taking","C. took","D. taken"], answer: "A" },
+          { id: "b6c1t2q3", num: 3, options: ["A. modern","B. cultural","C. personal","D. natural"], answer: "B" },
+          { id: "b6c1t2q4", num: 4, options: ["A. be restored","B. make restored","C. do restored","D. take restored"], answer: "A" },
+          { id: "b6c1t2q5", num: 5, options: ["A. disappear","B. be lost","C. losing","D. lose"], answer: "A" }
+        ]
+      },
+      {
+        id: "b6c1_task3",
+        title: "Task 3: Điền từ – Every Generation's Responsibility",
+        type: "cloze",
+        passage: `Preserving cultural heritage is a responsibility that every generation should take seriously. Cultural heritage includes historical sites, traditional festivals, local customs, and valuable artifacts that reflect the identity of a nation. Many heritage sites are now under threat due to rapid urbanisation and careless tourism. Therefore, governments and communities must work together to protect them effectively.\n\nOne important solution is making careful (1)_____ of resources to maintain historical buildings and cultural landscapes. In addition, young people need to understand the true (2)_____ of heritage so that they feel motivated to protect it. Schools can play a vital role by encouraging students to take part in heritage-related activities and community projects. Another effective approach is to promote the (3)________ of modern technology, such as digital archives and virtual museums, to preserve endangered sites. These methods help people access heritage without causing physical damage. Heritage protection is also closely connected with the role of local (4)__________, who pass down traditions and knowledge from one generation to another. Finally, it is essential (5)_______ a balance between economic development and heritage preservation in order to ensure sustainable growth for the future.`,
+        questions: [
+          { id: "b6c1t3q1", num: 1, options: ["A. use","B. use of","C. using","D. used"], answer: "B" },
+          { id: "b6c1t3q2", num: 2, options: ["A. value","B. cost","C. price","D. level"], answer: "A" },
+          { id: "b6c1t3q3", num: 3, options: ["A. careless use","B. effective use","C. quick use","D. heavy use"], answer: "B" },
+          { id: "b6c1t3q4", num: 4, options: ["A. tradition","B. traditional","C. traditionalists","D. traditionally"], answer: "C" },
+          { id: "b6c1t3q5", num: 5, options: ["A. keeping","B. kept","C. to keep","D. keep"], answer: "C" }
+        ]
+      },
+      {
+        id: "b6c1_task4",
+        title: "Task 4: Sắp xếp câu / đoạn hội thoại",
+        type: "mcq",
+        questions: [
+          {
+            id: "b6c1t4q1", num: 1,
+            text: "Sắp xếp đúng thứ tự:\na. Peter: I'm worried about the old temple in our village.\nb. Anna: Yes, it really needs protection.\nc. Peter: Many tourists are damaging it.",
+            options: ["A. b–a–c","B. a–c–b","C. c–a–b","D. a–b–c"], answer: "B"
+          },
+          {
+            id: "b6c1t4q2", num: 2,
+            text: "Sắp xếp đúng thứ tự:\na. Mai: Our school is organising a heritage campaign.\nb. Nam: That sounds interesting. How can I join?\nc. Mai: You can sign up after class.",
+            options: ["A. b–a–c","B. c–a–b","C. a–b–c","D. a–c–b"], answer: "C"
+          },
+          {
+            id: "b6c1t4q3", num: 3,
+            text: "Sắp xếp đúng thứ tự:\na. Anna: Hi Tom, what are you doing this weekend?\nb. Tom: I'm visiting a historical site with my family.\nc. Anna: That's great. Preserving heritage is important.\nd. Tom: Yes, we should protect it for the future.",
+            options: ["A. b–a–c–d","B. a–b–c–d","C. a–c–b–d","D. c–a–b–d"], answer: "B"
+          },
+          {
+            id: "b6c1t4q4", num: 4,
+            text: "Sắp xếp đúng thứ tự:\na. Preserving heritage helps communities maintain their cultural identity and strengthens social connections among local people.\nb. Many historical sites are under threat because of rapid urban development and environmental changes.\nc. Governments should introduce effective laws to protect important cultural landmarks and traditions.\nd. Education plays a key role in raising awareness about the value of cultural heritage.\ne. Therefore, cooperation between authorities and communities is essential for sustainable heritage preservation.",
+            options: ["A. b–a–d–c–e","B. a–b–c–d–e","C. b–d–a–c–e","D. b–a–c–d–e"], answer: "D"
+          },
+          {
+            id: "b6c1t4q5", num: 5,
+            text: "Sắp xếp đúng thứ tự:\na. Counter-urbanisation has encouraged many people to move back to rural areas in search of better quality of life.\nb. This trend has contributed to the revival of traditional lifestyles and local cultural practices.\nc. However, rural areas must manage development carefully to avoid damaging their cultural heritage.\nd. Sustainable planning can help balance economic growth with heritage preservation.\ne. As a result, rural communities can develop while maintaining their unique cultural identity.",
+            options: ["A. a–c–b–d–e","B. a–b–c–d–e","C. b–a–c–d–e","D. a–b–d–c–e"], answer: "B"
+          }
+        ]
+      }
+    ]
+  },
+  {
     id: "bai6",
     title: "Bài 6 – Preserving Our Heritage (Code 2)",
     sections: [

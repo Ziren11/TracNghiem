@@ -203,3 +203,25 @@ header p { font-size: 0.9rem; opacity: 0.85; margin-top: 4px; }
   .exam-tabs { flex-direction: column; }
   .card { padding: 16px; }
 }
+
+/* Subject tabs */
+.subject-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.subject-tab {
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: none;
+  background: #e5e7eb;
+  color: #374151;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.subject-tab:hover { background: #d1d5db; }
+.subject-tab.active { background: linear-gradient(135deg, #1a56db, #0e9f6e); color: white; }
