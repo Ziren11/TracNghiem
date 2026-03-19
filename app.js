@@ -6,113 +6,93 @@ const subjects = [
 let currentSubjectIdx = 0;
 let currentExamIdx = 0;
 let currentSectionIdx = 0;
-let userAnswers = {};
+let userAnswers = {}; // mcq: { qId: "A" }, truefalse: { "qId_a": "D", "qId_b": "S", ... }
 let submitted = {};
 
-function getCurrentExams() {
-  return subjects[currentSubjectIdx].data();
-}
+function getCurrentExams() { return subjects[currentSubjectIdx].data(); }
 
-function init() {
-  renderSubjectTabs();
-  renderExamTabs();
-  renderSection();
-}
+function init() { renderSubjectTabs(); renderExamTabs(); renderSection(); }
 
 function renderSubjectTabs() {
-  const wrap = document.getElementById('subject-tabs');
-  wrap.innerHTML = subjects.map((s, i) =>
-    `<button class="subject-tab ${i === currentSubjectIdx ? 'active' : ''}" onclick="selectSubject(${i})">${s.label}</button>`
+  document.getElementById('subject-tabs').innerHTML = subjects.map((s, i) =>
+    `<button class="subject-tab ${i===currentSubjectIdx?'active':''}" onclick="selectSubject(${i})">${s.label}</button>`
   ).join('');
 }
 
 function selectSubject(idx) {
-  currentSubjectIdx = idx;
-  currentExamIdx = 0;
-  currentSectionIdx = 0;
-  renderSubjectTabs();
-  renderExamTabs();
-  renderSection();
+  currentSubjectIdx = idx; currentExamIdx = 0; currentSectionIdx = 0;
+  renderSubjectTabs(); renderExamTabs(); renderSection();
 }
 
 function renderExamTabs() {
-  const exams = getCurrentExams();
-  const wrap = document.getElementById('exam-tabs');
-  wrap.innerHTML = exams.map((e, i) =>
-    `<button class="exam-tab ${i === currentExamIdx ? 'active' : ''}" onclick="selectExam(${i})">${e.title}</button>`
+  document.getElementById('exam-tabs').innerHTML = getCurrentExams().map((e, i) =>
+    `<button class="exam-tab ${i===currentExamIdx?'active':''}" onclick="selectExam(${i})">${e.title}</button>`
   ).join('');
 }
 
 function selectExam(idx) {
-  currentExamIdx = idx;
-  currentSectionIdx = 0;
-  renderExamTabs();
-  renderSection();
+  currentExamIdx = idx; currentSectionIdx = 0;
+  renderExamTabs(); renderSection();
+}
+
+// ── Count answered for a section (handles both types) ──
+function countAnswered(section) {
+  if (section.type === 'truefalse') {
+    return section.questions.filter(q =>
+      ['a','b','c','d'].every(k => userAnswers[q.id+'_'+k])
+    ).length;
+  }
+  return section.questions.filter(q => userAnswers[q.id]).length;
+}
+
+// ── Count correct for a section ──
+function countCorrect(section) {
+  if (section.type === 'truefalse') {
+    return section.questions.filter(q =>
+      ['a','b','c','d'].every(k => userAnswers[q.id+'_'+k] === q.answers[k])
+    ).length;
+  }
+  return section.questions.filter(q => userAnswers[q.id] && userAnswers[q.id][0] === q.answer).length;
+}
+
+// ── Check unanswered ──
+function getUnanswered(section) {
+  if (section.type === 'truefalse') {
+    return section.questions.filter(q =>
+      ['a','b','c','d'].some(k => !userAnswers[q.id+'_'+k])
+    );
+  }
+  return section.questions.filter(q => !userAnswers[q.id]);
 }
 
 function renderSection() {
-  const exams = getCurrentExams();
-  const exam = exams[currentExamIdx];
+  const exam = getCurrentExams()[currentExamIdx];
   const section = exam.sections[currentSectionIdx];
 
-  const nav = document.getElementById('section-nav');
-  nav.innerHTML = exam.sections.map((s, i) =>
-    `<button class="section-btn ${i === currentSectionIdx ? 'active' : ''}" onclick="selectSection(${i})">Phần ${i + 1}</button>`
+  document.getElementById('section-nav').innerHTML = exam.sections.map((s, i) =>
+    `<button class="section-btn ${i===currentSectionIdx?'active':''}" onclick="selectSection(${i})">Phần ${i+1}</button>`
   ).join('');
 
-  const content = document.getElementById('content');
   const isSubmitted = submitted[section.id];
+  const total = section.questions.length;
+  const answered = countAnswered(section);
 
   let html = `<div class="card"><h2>${section.title}</h2>`;
+  if (section.passage) html += `<div class="passage">${escHtml(section.passage)}</div>`;
 
-  if (section.passage) {
-    html += `<div class="passage">${escHtml(section.passage)}</div>`;
-  }
-
-  const total = section.questions.length;
-  const answered = section.questions.filter(q => userAnswers[q.id]).length;
   html += `<div class="progress-wrap">
-    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${total ? (answered/total*100) : 0}%"></div></div>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${total?(answered/total*100):0}%"></div></div>
     <div class="progress-text">Đã trả lời: ${answered}/${total}</div>
   </div>`;
 
-  section.questions.forEach(q => {
-    const selected = userAnswers[q.id];
-    const isCorrect = selected && selected[0] === q.answer;
-    let blockClass = '';
-    if (isSubmitted) blockClass = isCorrect ? 'correct' : 'wrong';
-
-    html += `<div class="question-block ${blockClass}" id="qblock-${q.id}">
-      <div class="question-text">Câu ${q.num}${q.text ? '. ' + escHtml(q.text) : '.'}</div>
-      <div class="options">`;
-
-    q.options.forEach(opt => {
-      const letter = opt[0];
-      let labelClass = '';
-      if (isSubmitted) {
-        if (letter === q.answer) labelClass = 'correct-ans';
-        else if (selected && selected[0] === letter && letter !== q.answer) labelClass = 'wrong-ans';
-      } else if (selected && selected[0] === letter) {
-        labelClass = 'selected';
-      }
-      const checked = selected && selected[0] === letter ? 'checked' : '';
-      const disabled = isSubmitted ? 'disabled' : '';
-      html += `<label class="option-label ${labelClass}">
-        <input type="radio" name="${q.id}" value="${letter}" ${checked} ${disabled} onchange="selectAnswer('${q.id}', '${letter}')">
-        <span>${escHtml(opt)}</span>
-      </label>`;
-    });
-
-    html += `</div>`;
-    if (isSubmitted) {
-      const fb = isCorrect ? `✓ Đúng! Đáp án: ${q.answer}` : `✗ Sai. Đáp án đúng: ${q.answer}`;
-      html += `<div class="feedback show ${isCorrect ? 'correct' : 'wrong'}">${fb}</div>`;
-    }
-    html += `</div>`;
-  });
+  if (section.type === 'truefalse') {
+    html += renderTrueFalseQuestions(section, isSubmitted);
+  } else {
+    html += renderMCQQuestions(section, isSubmitted);
+  }
 
   if (isSubmitted) {
-    const correct = section.questions.filter(q => userAnswers[q.id] && userAnswers[q.id][0] === q.answer).length;
+    const correct = countCorrect(section);
     html += `<div class="score-box show">
       <div class="score-num">${correct}/${total}</div>
       <div class="score-label">Số câu đúng — ${Math.round(correct/total*100)}%</div>
@@ -125,14 +105,88 @@ function renderSection() {
   } else {
     html += `<button class="btn btn-outline" onclick="resetSection('${section.id}')">Làm lại</button>`;
   }
-  const examsArr = getCurrentExams();
-  const exam2 = examsArr[currentExamIdx];
-  if (currentSectionIdx < exam2.sections.length - 1) {
-    html += `<button class="btn btn-success" onclick="selectSection(${currentSectionIdx + 1})">Phần tiếp theo →</button>`;
+  if (currentSectionIdx < exam.sections.length - 1) {
+    html += `<button class="btn btn-success" onclick="selectSection(${currentSectionIdx+1})">Phần tiếp theo →</button>`;
   }
   html += `</div></div>`;
 
-  content.innerHTML = html;
+  document.getElementById('content').innerHTML = html;
+}
+
+function renderMCQQuestions(section, isSubmitted) {
+  let html = '';
+  section.questions.forEach(q => {
+    const selected = userAnswers[q.id];
+    const isCorrect = selected && selected[0] === q.answer;
+    let blockClass = isSubmitted ? (isCorrect ? 'correct' : 'wrong') : '';
+    html += `<div class="question-block ${blockClass}">
+      <div class="question-text">Câu ${q.num}${q.text ? '. '+escHtml(q.text) : '.'}</div>
+      <div class="options">`;
+    q.options.forEach(opt => {
+      const letter = opt[0];
+      let lc = '';
+      if (isSubmitted) {
+        if (letter === q.answer) lc = 'correct-ans';
+        else if (selected && selected[0] === letter) lc = 'wrong-ans';
+      } else if (selected && selected[0] === letter) lc = 'selected';
+      html += `<label class="option-label ${lc}">
+        <input type="radio" name="${q.id}" value="${letter}" ${selected&&selected[0]===letter?'checked':''} ${isSubmitted?'disabled':''} onchange="selectAnswer('${q.id}','${letter}')">
+        <span>${escHtml(opt)}</span>
+      </label>`;
+    });
+    html += `</div>`;
+    if (isSubmitted) {
+      html += `<div class="feedback show ${isCorrect?'correct':'wrong'}">${isCorrect?'✓ Đúng! Đáp án: '+q.answer:'✗ Sai. Đáp án đúng: '+q.answer}</div>`;
+    }
+    html += `</div>`;
+  });
+  return html;
+}
+
+function renderTrueFalseQuestions(section, isSubmitted) {
+  let html = '';
+  section.questions.forEach(q => {
+    // Check if all 4 sub-answers correct
+    const allCorrect = isSubmitted && ['a','b','c','d'].every(k => userAnswers[q.id+'_'+k] === q.answers[k]);
+    const anyAnswered = ['a','b','c','d'].some(k => userAnswers[q.id+'_'+k]);
+    let blockClass = isSubmitted ? (allCorrect ? 'correct' : 'wrong') : '';
+
+    html += `<div class="question-block ${blockClass}">
+      <div class="question-text">Câu ${q.num}. ${escHtml(q.stem)}</div>
+      <div class="tf-table">`;
+
+    ['a','b','c','d'].forEach(k => {
+      const subKey = q.id+'_'+k;
+      const chosen = userAnswers[subKey];
+      const correct = q.answers[k]; // "D" or "S"
+      let rowClass = '';
+      if (isSubmitted) rowClass = chosen === correct ? 'tf-row-correct' : 'tf-row-wrong';
+
+      html += `<div class="tf-row ${rowClass}">
+        <div class="tf-label">${escHtml(k+'. '+q.items[k])}</div>
+        <div class="tf-btns">`;
+
+      ['D','S'].forEach(val => {
+        const active = chosen === val;
+        let btnClass = 'tf-btn';
+        if (isSubmitted) {
+          if (val === correct) btnClass += ' tf-btn-correct';
+          else if (active && val !== correct) btnClass += ' tf-btn-wrong';
+        } else if (active) btnClass += ' tf-btn-active';
+        html += `<button class="${btnClass}" ${isSubmitted?'disabled':''} onclick="selectTF('${subKey}','${val}',this)">${val==='D'?'Đúng':'Sai'}</button>`;
+      });
+
+      html += `</div>`;
+      if (isSubmitted) {
+        const ok = chosen === correct;
+        html += `<div class="tf-hint ${ok?'correct':'wrong'}">${ok?'✓':'✗'} Đáp án: ${correct==='D'?'Đúng':'Sai'}</div>`;
+      }
+      html += `</div>`;
+    });
+
+    html += `</div></div>`;
+  });
+  return html;
 }
 
 function selectSection(idx) {
@@ -143,31 +197,49 @@ function selectSection(idx) {
 
 function selectAnswer(qId, letter) {
   userAnswers[qId] = letter;
-  const exams = getCurrentExams();
-  const section = exams[currentExamIdx].sections[currentSectionIdx];
+  updateProgress();
+}
+
+function selectTF(subKey, val, btn) {
+  userAnswers[subKey] = val;
+  // Update button styles in the same tf-btns container
+  const btns = btn.parentElement.querySelectorAll('.tf-btn');
+  btns.forEach(b => {
+    b.classList.remove('tf-btn-active');
+    if (b === btn) b.classList.add('tf-btn-active');
+  });
+  updateProgress();
+}
+
+function updateProgress() {
+  const section = getCurrentExams()[currentExamIdx].sections[currentSectionIdx];
   const total = section.questions.length;
-  const answered = section.questions.filter(q => userAnswers[q.id]).length;
+  const answered = countAnswered(section);
   const fill = document.querySelector('.progress-bar-fill');
   const text = document.querySelector('.progress-text');
-  if (fill) fill.style.width = (answered / total * 100) + '%';
+  if (fill) fill.style.width = (answered/total*100)+'%';
   if (text) text.textContent = `Đã trả lời: ${answered}/${total}`;
 }
 
 function submitSection(sectionId) {
-  const exams = getCurrentExams();
-  const section = exams[currentExamIdx].sections[currentSectionIdx];
-  const unanswered = section.questions.filter(q => !userAnswers[q.id]);
+  const section = getCurrentExams()[currentExamIdx].sections[currentSectionIdx];
+  const unanswered = getUnanswered(section);
   if (unanswered.length > 0) {
-    if (!confirm(`Còn ${unanswered.length} câu chưa trả lời. Bạn có muốn nộp bài không?`)) return;
+    if (!confirm(`Còn ${unanswered.length} câu chưa trả lời đủ. Bạn có muốn nộp bài không?`)) return;
   }
   submitted[sectionId] = true;
   renderSection();
 }
 
 function resetSection(sectionId) {
-  const exams = getCurrentExams();
-  const section = exams[currentExamIdx].sections[currentSectionIdx];
-  section.questions.forEach(q => delete userAnswers[q.id]);
+  const section = getCurrentExams()[currentExamIdx].sections[currentSectionIdx];
+  section.questions.forEach(q => {
+    if (section.type === 'truefalse') {
+      ['a','b','c','d'].forEach(k => delete userAnswers[q.id+'_'+k]);
+    } else {
+      delete userAnswers[q.id];
+    }
+  });
   delete submitted[sectionId];
   renderSection();
 }

@@ -33,6 +33,31 @@ const examsHoa = [
         ]
       },
       {
+        id: "hoa_b16_tf_nb",
+        title: "Đúng/Sai – Nhận Biết (5 câu)",
+        type: "truefalse",
+        questions: [
+          { id:"h16tfnb1", num:1, stem:"Cho các phát biểu về alkene và alkyne:", items:{a:"Alkene là hydrocarbon mạch hở có một liên kết đôi C=C.",b:"Alkyne là hydrocarbon mạch hở có một liên kết ba C≡C.",c:"Công thức chung của alkene là CnH2n (n≥2).",d:"Công thức chung của alkyne là CnH2n+2 (n≥2)."}, answers:{a:"S",b:"D",c:"D",d:"S"} },
+          { id:"h16tfnb2", num:2, stem:"Cho các phát biểu về liên kết trong phân tử ethylene (CH2=CH2):", items:{a:"Liên kết đôi C=C gồm 2 liên kết σ và 1 liên kết π.",b:"Liên kết đôi C=C gồm 1 liên kết σ và 1 liên kết π.",c:"Phân tử ethylene có tất cả 5 liên kết σ.",d:"Phân tử ethylene có tất cả 5 liên kết π."}, answers:{a:"S",b:"S",c:"D",d:"D"} },
+          { id:"h16tfnb3", num:3, stem:"Cho các phát biểu về acetylene (C2H2):", items:{a:"Acetylene có công thức phân tử C2H4.",b:"Acetylene có công thức phân tử C2H2.",c:"Phân tử acetylene có 3 liên kết σ và 2 liên kết π.",d:"Phân tử acetylene có 2 liên kết σ và 3 liên kết π."}, answers:{a:"S",b:"S",c:"D",d:"D"} },
+          { id:"h16tfnb4", num:4, stem:"Cho các phát biểu về tính chất vật lí của alkene:", items:{a:"Alkene tan tốt trong nước.",b:"Alkene có khối lượng riêng nhỏ hơn nước.",c:"Alkene C2–C4 là chất lỏng ở điều kiện thường.",d:"Alkene không dẫn điện."}, answers:{a:"D",b:"D",c:"S",d:"S"} },
+          { id:"h16tfnb5", num:5, stem:"Cho các phát biểu về điều chế alkene và alkyne trong phòng thí nghiệm:", items:{a:"Ethylene được điều chế bằng cách đun nóng ethanol với H2SO4 đặc ở 170°C.",b:"Acetylene được điều chế từ calcium carbide và nước.",c:"Ethylene được điều chế từ calcium carbide.",d:"Acetylene được điều chế từ ethanol."}, answers:{a:"S",b:"D",c:"D",d:"S"} }
+        ]
+      },
+      {
+        id: "hoa_b16_tf_hieu",
+        title: "Đúng/Sai – Hiểu (6 câu)",
+        type: "truefalse",
+        questions: [
+          { id:"h16tfh1", num:1, stem:"Cho các phát biểu về phản ứng cộng của alkene:", items:{a:"Alkene cộng HBr theo quy tắc Markovnikov.",b:"Sản phẩm chính khi cho propene cộng HBr là 2-bromopropane.",c:"Alkene cộng H2O tạo alcohol.",d:"Ethylene cộng Br2 tạo 1,1-dibromoethane."}, answers:{a:"D",b:"D",c:"D",d:"S"} },
+          { id:"h16tfh2", num:2, stem:"Cho các phát biểu về phản ứng của alkyne:", items:{a:"Alkyne có thể cộng H2 tạo alkene (xúc tác Lindlar).",b:"Alkyne đầu mạch (R-C≡CH) tạo kết tủa vàng với AgNO3/NH3.",c:"But-2-yne tạo kết tủa với AgNO3/NH3.",d:"Acetylene cộng H2O tạo acetaldehyde."}, answers:{a:"D",b:"D",c:"S",d:"D"} },
+          { id:"h16tfh3", num:3, stem:"Cho các phát biểu về đồng phân hình học của alkene:", items:{a:"But-2-ene có đồng phân cis-trans.",b:"But-1-ene có đồng phân cis-trans.",c:"2-methylbut-2-ene không có đồng phân cis-trans.",d:"Prop-1-ene không có đồng phân cis-trans."}, answers:{a:"D",b:"D",c:"D",d:"D"} },
+          { id:"h16tfh4", num:4, stem:"Cho các phát biểu về phản ứng oxi hóa alkene:", items:{a:"Ethylene không làm mất màu dung dịch KMnO4.",b:"Ethylene làm mất màu dung dịch KMnO4 tạo ethylene glycol.",c:"Alkene không bị oxi hóa bởi O2.",d:"Toluene làm mất màu dung dịch KMnO4 khi đun nóng."}, answers:{a:"S",b:"D",c:"S",d:"D"} },
+          { id:"h16tfh5", num:5, stem:"Cho các phát biểu về phản ứng trùng hợp:", items:{a:"Ethylene trùng hợp tạo polyethylene (PE).",b:"Propylene trùng hợp tạo polypropylene (PP).",c:"Acetylene trùng hợp tạo polyacetylene.",d:"Alkane có thể tham gia phản ứng trùng hợp."}, answers:{a:"S",b:"S",c:"D",d:"D"} },
+          { id:"h16tfh6", num:6, stem:"Cho các phát biểu về phân biệt alkane, alkene, alkyne:", items:{a:"Dùng dung dịch Br2 có thể phân biệt alkane với alkene.",b:"Dùng AgNO3/NH3 có thể phân biệt alkyne đầu mạch với alkyne giữa mạch.",c:"Dùng dung dịch KMnO4 không thể phân biệt alkene với alkyne.",d:"Dùng dung dịch Br2 và AgNO3/NH3 có thể phân biệt propane, propene, propyne."}, answers:{a:"D",b:"D",c:"S",d:"D"} }
+        ]
+      },
+      {
         id: "hoa_b16_hieu",
         title: "Hiểu (20 câu)",
         type: "mcq",
@@ -66,6 +91,23 @@ const examsHoa = [
     title: "Hóa 11 – Bài 17: Arene",
     subject: "hoa",
     sections: [
+      {
+        id: "hoa_b17_tf",
+        title: "Đúng/Sai (10 câu)",
+        type: "truefalse",
+        questions: [
+          { id:"h17tf1", num:1, stem:"Cho các phát biểu về cấu tạo benzene:", items:{a:"Phân tử benzene có 6 nguyên tử C tạo thành hình lục giác đều.",b:"Tất cả nguyên tử C và H trong benzene đều nằm trên một mặt phẳng.",c:"Các góc liên kết trong benzene đều bằng 109,5°.",d:"Các liên kết C–C trong benzene đều có độ dài bằng nhau."}, answers:{a:"D",b:"S",c:"S",d:"D"} },
+          { id:"h17tf2", num:2, stem:"Cho các phát biểu về tính chất hóa học của benzene:", items:{a:"Benzene không làm mất màu dung dịch KMnO4 ở điều kiện thường.",b:"Benzene tác dụng với Br2 (xúc tác FeBr3) tạo bromobenzene.",c:"Benzene tác dụng với dung dịch Br2 ở điều kiện thường.",d:"Benzene cộng Cl2 khi chiếu sáng tạo C6H6Cl6."}, answers:{a:"D",b:"S",c:"D",d:"S"} },
+          { id:"h17tf3", num:3, stem:"Cho các phát biểu về toluene (C6H5CH3):", items:{a:"Toluene là đồng đẳng của benzene.",b:"Toluene làm mất màu dung dịch KMnO4 khi đun nóng.",c:"Toluene tác dụng với HNO3 đặc/H2SO4 đặc tạo TNT.",d:"Toluene không tác dụng với dung dịch Br2 ở điều kiện thường."}, answers:{a:"D",b:"D",c:"D",d:"D"} },
+          { id:"h17tf4", num:4, stem:"Cho các phát biểu về styrene (C6H5CH=CH2):", items:{a:"Styrene là đồng đẳng của benzene.",b:"Styrene làm mất màu dung dịch KMnO4 ở điều kiện thường.",c:"Styrene có thể tham gia phản ứng trùng hợp.",d:"Styrene không tác dụng với dung dịch Br2."}, answers:{a:"S",b:"D",c:"D",d:"D"} },
+          { id:"h17tf5", num:5, stem:"Cho hỗn hợp X gồm hai chất hữu cơ có vòng benzene. Biết X, Y là sản phẩm của phản ứng halogen hóa toluene:", items:{a:"X và Y có cùng công thức phân tử.",b:"X là C7H7Cl khi thực hiện phản ứng với Cl2/FeCl3.",c:"Tên của X, Y lần lượt là o-chlorotoluene và p-chlorotoluene.",d:"Oxi hóa toluene bằng KMnO4 đun nóng thu được C6H5COOH."}, answers:{a:"S",b:"S",c:"D",d:"D"} },
+          { id:"h17tf6", num:6, stem:"Cho các phát biểu về p-xylene (C8H10):", items:{a:"p-xylene có công thức phân tử C8H8.",b:"p-xylene là đồng đẳng của benzene.",c:"p-xylene không làm mất màu dung dịch KMnO4 ở điều kiện thường.",d:"p-xylene tác dụng với KMnO4 đun nóng tạo muối dicarboxylate."}, answers:{a:"S",b:"D",c:"S",d:"D"} },
+          { id:"h17tf7", num:7, stem:"Cho các phát biểu về naphthalene (C10H8):", items:{a:"Naphthalene là hydrocarbon thơm đa vòng.",b:"Naphthalene được điều chế chủ yếu từ nhựa than đá.",c:"Naphthalene có thể cộng tối đa 5 mol H2.",d:"Naphthalene không tác dụng với dung dịch Br2 ở điều kiện thường."}, answers:{a:"D",b:"D",c:"D",d:"S"} },
+          { id:"h17tf8", num:8, stem:"Cho các phát biểu về phản ứng thế trên vòng benzene:", items:{a:"Phản ứng nitro hóa benzene cần xúc tác H2SO4 đặc.",b:"Phản ứng halogen hóa benzene cần xúc tác halide kim loại.",c:"Nhóm alkyl trên vòng benzene định hướng thế vào vị trí ortho và para.",d:"Phản ứng thế trên vòng benzene là phản ứng thế electrophile."}, answers:{a:"S",b:"S",c:"S",d:"D"} },
+          { id:"h17tf9", num:9, stem:"Cho các phát biểu về đồng đẳng của benzene:", items:{a:"Công thức chung của dãy đồng đẳng benzene là CnH2n-6 (n≥6).",b:"Ethylbenzene và o-xylene là đồng phân của nhau.",c:"Styrene là đồng đẳng của benzene.",d:"Toluene có công thức phân tử C7H8."}, answers:{a:"D",b:"D",c:"S",d:"S"} },
+          { id:"h17tf10", num:10, stem:"Cho các phát biểu về ứng dụng và điều chế arene:", items:{a:"Benzene được dùng làm dung môi trong công nghiệp.",b:"Toluene được dùng điều chế thuốc nổ TNT.",c:"Styrene được dùng điều chế polystyrene (PS).",d:"Benzene và toluene không gây hại cho sức khỏe."}, answers:{a:"D",b:"D",c:"D",d:"D"} }
+        ]
+      },
       {
         id: "hoa_b17_nb",
         title: "Nhận Biết (19 câu)",
@@ -124,6 +166,30 @@ const examsHoa = [
     title: "Hóa 11 – Bài 19: Dẫn Xuất Halogen",
     subject: "hoa",
     sections: [
+      {
+        id: "hoa_b19_tf_nb",
+        title: "Đúng/Sai – Nhận Biết (5 câu)",
+        type: "truefalse",
+        questions: [
+          { id:"h19tfnb1", num:1, stem:"Cho các phát biểu về dẫn xuất halogen:", items:{a:"Dẫn xuất halogen là hợp chất thu được khi thay thế nguyên tử H trong hydrocarbon bằng nguyên tử halogen.",b:"Chloroform (CHCl3) là dẫn xuất halogen của methane.",c:"C6H5Cl là dẫn xuất halogen của benzene.",d:"CH3COOH là dẫn xuất halogen của hydrocarbon."}, answers:{a:"D",b:"D",c:"D",d:"S"} },
+          { id:"h19tfnb2", num:2, stem:"Cho các phát biểu về bậc của dẫn xuất halogen:", items:{a:"Bậc của dẫn xuất halogen bằng bậc của nguyên tử carbon liên kết với halogen.",b:"CH3CH2Cl là dẫn xuất halogen bậc I.",c:"(CH3)2CHCl là dẫn xuất halogen bậc II.",d:"(CH3)3CCl là dẫn xuất halogen bậc I."}, answers:{a:"S",b:"D",c:"D",d:"D"} },
+          { id:"h19tfnb3", num:3, stem:"Cho các phát biểu về tính chất vật lí của dẫn xuất halogen:", items:{a:"Dẫn xuất halogen thường không tan trong nước.",b:"Nhiệt độ sôi của dẫn xuất halogen tăng theo chiều tăng của phân tử khối.",c:"Dẫn xuất halogen tan tốt trong dung môi hữu cơ.",d:"Tất cả dẫn xuất halogen đều là chất lỏng ở điều kiện thường."}, answers:{a:"D",b:"D",c:"D",d:"D"} },
+          { id:"h19tfnb4", num:4, stem:"Cho các phát biểu về phản ứng thủy phân dẫn xuất halogen:", items:{a:"CH3CH2Cl thủy phân trong NaOH loãng tạo ethanol.",b:"C6H5Cl thủy phân trong NaOH loãng tạo phenol.",c:"C6H5CH2Cl thủy phân trong NaOH loãng tạo benzyl alcohol.",d:"CH2=CHCl thủy phân trong NaOH loãng tạo vinyl alcohol."}, answers:{a:"D",b:"S",c:"S",d:"D"} },
+          { id:"h19tfnb5", num:5, stem:"Cho các phát biểu về ứng dụng của dẫn xuất halogen:", items:{a:"CFC được dùng làm chất làm lạnh trong điều hòa không khí.",b:"DDT là thuốc trừ sâu bị cấm sử dụng vì gây ô nhiễm môi trường.",c:"PVC được điều chế từ vinyl chloride.",d:"Chloroform được dùng làm thuốc gây mê trong y tế hiện đại."}, answers:{a:"D",b:"D",c:"D",d:"S"} }
+        ]
+      },
+      {
+        id: "hoa_b19_tf_hieu",
+        title: "Đúng/Sai – Hiểu (5 câu)",
+        type: "truefalse",
+        questions: [
+          { id:"h19tfh1", num:1, stem:"Cho các phát biểu về phản ứng tách HX của dẫn xuất halogen:", items:{a:"Phản ứng tách HX xảy ra khi đun nóng dẫn xuất halogen với KOH/ethanol.",b:"Theo quy tắc Zaitsev, sản phẩm chính là alkene có liên kết đôi ít bị thế hơn.",c:"2-bromobutane tách HBr tạo sản phẩm chính là but-2-ene.",d:"Phản ứng tách HX tạo ra alkene."}, answers:{a:"D",b:"D",c:"S",d:"D"} },
+          { id:"h19tfh2", num:2, stem:"Cho các phát biểu về khả năng phản ứng của dẫn xuất halogen:", items:{a:"Dẫn xuất halogen vinyl (CH2=CHX) khó thủy phân hơn dẫn xuất halogen alkyl.",b:"Dẫn xuất halogen aryl (C6H5X) dễ thủy phân hơn dẫn xuất halogen alkyl.",c:"Dẫn xuất halogen allyl (CH2=CHCH2X) dễ thủy phân hơn dẫn xuất halogen alkyl.",d:"Độ bền liên kết C–X giảm dần từ C–F đến C–I."}, answers:{a:"D",b:"S",c:"D",d:"S"} },
+          { id:"h19tfh3", num:3, stem:"Cho các phát biểu về nhận biết dẫn xuất halogen:", items:{a:"Đun sôi dẫn xuất halogen với NaOH loãng, sau đó thêm AgNO3 có thể nhận biết ion halide.",b:"Dẫn xuất halogen vinyl không cho kết tủa với AgNO3 sau khi thủy phân trong NaOH loãng.",c:"Dẫn xuất halogen aryl không cho kết tủa với AgNO3 sau khi thủy phân trong NaOH loãng.",d:"Dẫn xuất halogen allyl cho kết tủa với AgNO3 sau khi thủy phân trong NaOH loãng."}, answers:{a:"D",b:"D",c:"D",d:"D"} },
+          { id:"h19tfh4", num:4, stem:"Cho các phát biểu về dẫn xuất halogen thơm:", items:{a:"C6H5Cl (chlorobenzene) không tác dụng với NaOH loãng.",b:"C6H5CH2Cl (benzyl chloride) tác dụng với NaOH loãng tạo benzyl alcohol.",c:"C6H5Cl tác dụng với NaOH đặc, nhiệt độ cao, áp suất cao tạo phenol.",d:"Benzyl chloride khó thủy phân hơn chlorobenzene."}, answers:{a:"D",b:"S",c:"D",d:"S"} },
+          { id:"h19tfh5", num:5, stem:"Cho các phát biểu về ảnh hưởng của halogen đến môi trường:", items:{a:"CFC phá hủy tầng ozone.",b:"DDT tích lũy trong chuỗi thức ăn gây hại cho sinh vật.",c:"Dioxin là chất độc hại sinh ra khi đốt rác thải chứa PVC.",d:"Tất cả dẫn xuất halogen đều gây hại cho môi trường."}, answers:{a:"D",b:"S",c:"D",d:"D"} }
+        ]
+      },
       {
         id: "hoa_b19_nb",
         title: "Nhận Biết (20 câu)",
@@ -185,6 +251,30 @@ const examsHoa = [
     title: "Hóa 11 – Bài 20: Alcohol",
     subject: "hoa",
     sections: [
+      {
+        id: "hoa_b20_tf_nb",
+        title: "Đúng/Sai – Nhận Biết (5 câu)",
+        type: "truefalse",
+        questions: [
+          { id:"h20tfnb1", num:1, stem:"Cho các phát biểu về định nghĩa và phân loại alcohol:", items:{a:"Alcohol là hợp chất hữu cơ có nhóm –OH liên kết với nguyên tử carbon no.",b:"Phenol (C6H5OH) là alcohol vì có nhóm –OH.",c:"Glycerol là alcohol đa chức.",d:"Ethanol là alcohol đơn chức."}, answers:{a:"D",b:"S",c:"S",d:"D"} },
+          { id:"h20tfnb2", num:2, stem:"Cho các phát biểu về công thức và danh pháp alcohol:", items:{a:"Công thức chung của alcohol no, đơn chức, mạch hở là CnH2n+1OH (n≥1).",b:"Tên thay thế của CH3OH là methanol.",c:"Tên thay thế của C2H5OH là ethanol.",d:"Tên thay thế của (CH3)2CHOH là propan-1-ol."}, answers:{a:"D",b:"S",c:"D",d:"D"} },
+          { id:"h20tfnb3", num:3, stem:"Cho các phát biểu về tính chất vật lí của alcohol:", items:{a:"Alcohol có nhiệt độ sôi cao hơn hydrocarbon có phân tử khối tương đương.",b:"Alcohol tan tốt trong nước do tạo liên kết hydrogen với nước.",c:"Methanol, ethanol, propanol đều tan vô hạn trong nước.",d:"Alcohol có nhiệt độ sôi thấp hơn ether đồng phân."}, answers:{a:"D",b:"D",c:"D",d:"S"} },
+          { id:"h20tfnb4", num:4, stem:"Cho các phát biểu về phản ứng của alcohol với kim loại kiềm:", items:{a:"Ethanol tác dụng với Na giải phóng khí H2.",b:"Glycerol tác dụng với Na giải phóng khí H2.",c:"Alcohol không tác dụng với Na.",d:"Phản ứng của alcohol với Na tương tự phản ứng của nước với Na."}, answers:{a:"D",b:"D",c:"S",d:"D"} },
+          { id:"h20tfnb5", num:5, stem:"Cho các phát biểu về nhận biết alcohol:", items:{a:"Glycerol hòa tan Cu(OH)2 tạo dung dịch màu xanh lam đặc trưng.",b:"Ethanol hòa tan Cu(OH)2 tạo dung dịch màu xanh lam.",c:"Alcohol đơn chức không hòa tan Cu(OH)2.",d:"Chỉ có alcohol đa chức mới hòa tan được Cu(OH)2."}, answers:{a:"D",b:"S",c:"S",d:"S"} }
+        ]
+      },
+      {
+        id: "hoa_b20_tf_hieu",
+        title: "Đúng/Sai – Hiểu (5 câu)",
+        type: "truefalse",
+        questions: [
+          { id:"h20tfh1", num:1, stem:"Cho các phát biểu về phản ứng tách nước của alcohol:", items:{a:"Đun nóng ethanol với H2SO4 đặc ở 170°C tạo ethylene.",b:"Đun nóng ethanol với H2SO4 đặc ở 140°C tạo diethyl ether.",c:"Sản phẩm chính khi tách nước 2-methylbutan-2-ol là 2-methylbut-1-ene.",d:"Phản ứng tách nước alcohol tuân theo quy tắc Zaitsev."}, answers:{a:"S",b:"S",c:"D",d:"D"} },
+          { id:"h20tfh2", num:2, stem:"Cho các phát biểu về phản ứng oxi hóa alcohol:", items:{a:"Alcohol bậc I bị oxi hóa bởi CuO tạo aldehyde.",b:"Alcohol bậc II bị oxi hóa bởi CuO tạo ketone.",c:"Alcohol bậc III bị oxi hóa bởi CuO tạo acid.",d:"Ethanol bị oxi hóa hoàn toàn bởi O2 tạo CO2 và H2O."}, answers:{a:"S",b:"D",c:"S",d:"D"} },
+          { id:"h20tfh3", num:3, stem:"Cho các phát biểu về ứng dụng của alcohol:", items:{a:"Ethanol được dùng làm nhiên liệu sinh học.",b:"Glycerol được dùng trong công nghiệp mỹ phẩm.",c:"Methanol là chất độc, không được dùng làm đồ uống.",d:"Ethanol được dùng làm dung môi trong y tế."}, answers:{a:"S",b:"D",c:"D",d:"D"} },
+          { id:"h20tfh4", num:4, stem:"Cho các phát biểu về phản ứng của alcohol với acid:", items:{a:"Ethanol tác dụng với CH3COOH tạo ester.",b:"Alcohol tác dụng với HBr tạo dẫn xuất halogen.",c:"Glycerol tác dụng với HNO3 đặc tạo nitroglycerin.",d:"Alcohol không tác dụng với acid vô cơ."}, answers:{a:"D",b:"S",c:"D",d:"S"} },
+          { id:"h20tfh5", num:5, stem:"Cho các phát biểu về điều chế alcohol:", items:{a:"Ethanol được điều chế bằng cách hydrat hóa ethylene.",b:"Ethanol được điều chế bằng cách lên men tinh bột.",c:"Methanol được điều chế từ khí tổng hợp (CO + H2).",d:"Glycerol là sản phẩm phụ của quá trình sản xuất xà phòng."}, answers:{a:"D",b:"D",c:"D",d:"S"} }
+        ]
+      },
       {
         id: "hoa_b20_nb",
         title: "Nhận Biết (20 câu)",
